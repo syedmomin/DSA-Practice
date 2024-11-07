@@ -2,23 +2,21 @@ function binarySearch(arr, val) {
     let start = 0;
     let end = arr.length - 1;
 
-    while (start < end) {
-        let mid = (start * end) / 2;
+    while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
 
-        if (mid == val) {
+        if (arr[mid] === val) {
             return mid;
         }
 
-        if (mid > val) {
-            start += 1
-        }
-
-        if(mid < val){
-            start -= 1
+        if (arr[mid] < val) {
+            start = mid + 1;
+        } else {
+            end = mid - 1;
         }
     }
 
-    return start
+    return -1;
 
 }
 
